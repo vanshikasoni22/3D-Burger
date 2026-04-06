@@ -98,9 +98,19 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Rotating orbit ring */}
-          <div className={`hero__orbit ${phase === 'rotate' || phase === 'reveal' || phase === 'done' ? 'orbit--visible' : ''}`}>
-            <div className="hero__orbit-ring" />
+          {/* Cinematic Preparation Video */}
+          <div className={`hero__video-wrap ${phase === 'assemble' || phase === 'rotate' || phase === 'reveal' || phase === 'done' ? 'video--visible' : ''}`}>
+            <video
+              className="hero__video"
+              autoPlay
+              muted
+              loop
+              playsInline
+            >
+              <source src="https://v.pexels.com/video-files/3811802/3811802-uhd_1440_2160_24fps.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <div className="hero__video-overlay" />
           </div>
 
           {/* Layer labels */}

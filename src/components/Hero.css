@@ -158,50 +158,38 @@
   filter: blur(2px);
 }
 
-/* Orbit ring */
-.hero__orbit {
+/* Cinematic Video Wrap */
+.hero__video-wrap {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: opacity 0.6s ease;
+  transition: opacity 1.5s ease;
   z-index: 1;
 }
 
-.orbit--visible {
+.video--visible {
   opacity: 1;
 }
 
-.hero__orbit-ring {
-  width: 380px;
-  height: 380px;
+.hero__video {
+  width: 440px;
+  height: 440px;
+  object-fit: cover;
   border-radius: 50%;
-  border: 1px solid rgba(201, 153, 58, 0.15);
-  box-shadow:
-    0 0 20px rgba(201, 153, 58, 0.06),
-    inset 0 0 20px rgba(201, 153, 58, 0.04);
-  animation: orbitSpin 12s linear infinite;
-  position: relative;
+  border: 1px solid rgba(201, 153, 58, 0.2);
+  mask-image: radial-gradient(circle, black 50%, transparent 70%);
+  -webkit-mask-image: radial-gradient(circle, black 50%, transparent 70%);
+  filter: drop-shadow(0 0 30px rgba(201, 153, 58, 0.15));
 }
 
-.hero__orbit-ring::before {
-  content: '';
+.hero__video-overlay {
   position: absolute;
-  top: -3px;
-  left: 50%;
-  width: 6px;
-  height: 6px;
-  background: var(--gold);
-  border-radius: 50%;
-  box-shadow: 0 0 10px var(--gold), 0 0 20px var(--gold-light);
-  transform: translateX(-50%);
-}
-
-@keyframes orbitSpin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.6) 70%, var(--black) 100%);
+  pointer-events: none;
 }
 
 /* Burger wrap animation phases */
