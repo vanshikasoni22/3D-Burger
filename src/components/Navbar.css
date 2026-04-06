@@ -1,0 +1,218 @@
+/* ============================
+   Navbar Styles
+   ============================ */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1.4rem 2.5rem;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.navbar--scrolled {
+  background: rgba(5, 5, 5, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 0.9rem 2.5rem;
+  border-bottom: 1px solid rgba(201, 153, 58, 0.12);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+}
+
+.navbar__inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* Logo */
+.navbar__logo {
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  letter-spacing: 0.05em;
+}
+
+.navbar__logo-main {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.9rem;
+  color: var(--gold);
+  line-height: 1;
+  text-shadow: 0 0 20px rgba(201, 153, 58, 0.5);
+}
+
+.navbar__logo-sep {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: var(--steel);
+  font-weight: 300;
+  margin: 0 0.15rem;
+}
+
+.navbar__logo-sub {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--steel-silver);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+/* Desktop Links */
+.navbar__links {
+  display: flex;
+  list-style: none;
+  gap: 0.2rem;
+}
+
+.navbar__link {
+  font-family: var(--font-sub);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--steel-light);
+  padding: 0.5rem 0.9rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar__link:hover,
+.navbar__link--active {
+  color: var(--gold-light);
+}
+
+.navbar__link-underline {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 80%;
+  height: 1.5px;
+  background: var(--gold);
+  border-radius: 1px;
+  transform-origin: center;
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.navbar__link:hover .navbar__link-underline,
+.navbar__link--active .navbar__link-underline {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* CTA Button */
+.navbar__cta {
+  font-family: var(--font-sub);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: linear-gradient(135deg, var(--gold), var(--amber));
+  padding: 0.65rem 1.4rem;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(201, 153, 58, 0.3);
+}
+
+.navbar__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(201, 153, 58, 0.5);
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+}
+
+/* Hamburger */
+.navbar__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+}
+
+.navbar__hamburger span {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: var(--steel-light);
+  border-radius: 1px;
+  transition: all 0.35s ease;
+  transform-origin: center;
+}
+
+.navbar__hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+  background: var(--gold);
+}
+.navbar__hamburger.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.navbar__hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+  background: var(--gold);
+}
+
+/* Mobile Menu */
+.navbar__mobile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(5, 5, 5, 0.98);
+  backdrop-filter: blur(30px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  transform: translateX(100%);
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 999;
+}
+
+.navbar__mobile--open {
+  transform: translateX(0);
+}
+
+.navbar__mobile-link {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2.5rem;
+  letter-spacing: 0.15em;
+  color: var(--steel-silver);
+  transition: color 0.3s ease;
+}
+
+.navbar__mobile-link:hover {
+  color: var(--gold);
+}
+
+.navbar__mobile-cta {
+  font-family: var(--font-sub);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: linear-gradient(135deg, var(--gold), var(--amber));
+  padding: 0.9rem 2.5rem;
+  border-radius: 2px;
+  margin-top: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .navbar__links,
+  .navbar__cta {
+    display: none;
+  }
+  .navbar__hamburger {
+    display: flex;
+  }
+}
